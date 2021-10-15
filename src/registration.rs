@@ -19,13 +19,15 @@ use log::debug;
 use reqwest::StatusCode;
 use serde::{Deserialize, Serialize};
 use sha1::Sha1;
+use typed_builder::TypedBuilder;
 
 type HmacSha1 = Hmac<Sha1>;
 
-#[derive(Debug, Deserialize)]
+#[derive(Clone, TypedBuilder, Debug, Default, Deserialize)]
 pub struct User {
     /// Create user as admin?
     #[serde(default)]
+    #[builder(default = false)]
     pub admin: bool,
 
     pub localname: String,
@@ -33,6 +35,7 @@ pub struct User {
     /// You should use the password method to access this slot
     /// so that iff the password isn't provided, it will use the localname.
     #[serde(default)]
+    #[builder(default=None)]
     password: Option<String>,
 }
 
