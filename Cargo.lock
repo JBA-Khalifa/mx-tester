@@ -1279,6 +1279,7 @@ name = "mx-tester"
 version = "0.1.2"
 dependencies = [
  "anyhow",
+ "async-trait",
  "clap",
  "comma",
  "data-encoding",
@@ -1290,6 +1291,7 @@ dependencies = [
  "log",
  "matrix-sdk",
  "nix",
+ "rand 0.8.4",
  "reqwest",
  "serde",
  "serde_json",
